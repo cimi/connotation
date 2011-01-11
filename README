@@ -1,1 +1,2 @@
-Test
+For now: main class, to test that it can run.
+For tomorrow: initialize the settings module, modularize the input, corpus and algorithm bits.
