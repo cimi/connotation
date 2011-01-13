@@ -5,7 +5,8 @@ class main:
 	self.member = "token"        
 
     def main(self):
-	sources = ["The quick brown fox jumps over the lazy dog", "This is ninja stuff right there"]
+	sources = ["The quick brown fox jumps over the lazy dog", "This is ninja stuff right there",
+               "This is micky changing connotation project from eclipse:)"]
 	print sources
 	print self.member
 
