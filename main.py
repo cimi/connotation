@@ -1,5 +1,6 @@
 import sys
-
+from corpus.wordscore import WordScore
+from nltk.corpus import wordnet
 class main: 
     def __init__(self):
 	self.member = "token"        
@@ -9,9 +10,10 @@ class main:
                "This is micky changing connotation project from eclipse:)"]
 	# get the corpus interface
 	sys.path.append('corpus')
-	import wordscore
-	c = wordscore.WordScore()
+	c = WordScore('corpus/data/swn.txt')
 	word = 'coconut'
+	print wordnet.synsets(word)
+	print wordnet.synsets(word)[0]
 	print c.getScore(word)
 
 
