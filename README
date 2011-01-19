@@ -1,2 +1,10 @@
-For now: main class, to test that it can run.
-For tomorrow: initialize the settings module, modularize the input, corpus and algorithm bits.
+Dependencies:
+	- NLTK - python library, to be downloaded
+	- SentiWordNet (corpus/data/swn.txt)
+
+Current usage:
+	python main.py <word>
+
+Outputs a list with all the scores associated with the certain word given as input.
+
+

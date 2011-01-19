@@ -11,20 +11,24 @@ class WordScore():
 				continue
 			else:
 				row = line.split('\t')
-				self.swn[(row[0], row[1])] = row[2:]
+				# get set of keys associated with a score & offset
+				synsets = row[-1].strip().replace("#",".").split(' ')
+				for synset in synsets:
+					synset = synset[:-1] + '0' + synset[-1]
+					self.swn[synset] = row[2:-1]
 
 	def getScore(self, word):
 		"""Returns an integer representing the score associated to a word by SentiWordNet""" 
 		# first, get the synset of the word from wordnet
 		synsets = wordnet.synsets(word)
-		print "The word " + word + "is associated with the following synsets:"			
+		print "The word " + word + " is associated with the following synsets:"			
 		res = []
 		for synset in synsets:
 			# print out synsets for debugging
-			print synset
-			print  "... with offset " + str(synset.offset) + " and pos " + synset.pos 
+			# print synset.name + " with offset " + str(synset.offset) + " and pos " + synset.pos 
 			# get a list of all scores that match in swn
-			if self.swn.has_key((synset.pos, synset.offset)):
-				res.append(self.swn[(synset.pos, synset.offset)][0:1])
+			# print self.swn['comment.v.2']
+			if self.swn.has_key(synset.name):
+				res.append(self.swn[(synset.name)])
 		return res
 
