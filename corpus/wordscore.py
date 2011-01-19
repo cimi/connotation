@@ -1,5 +1,5 @@
 from random import randint
-from sentiwordnet import SentiWordNet
+from nltk.corpus import wordnet
 class WordScore():
 	
 	def __init__(self, fileName):
@@ -12,9 +12,15 @@ class WordScore():
 			else:
 				row = line.split('\t')
 				self.swn[(row[0], row[1])] = row[2:]
+
 	def getScore(self, word):
 		"""Returns an integer representing the score associated to a word by SentiWordNet""" 
 		# first, get the synset of the word from wordnet
+		synsets = wordnet.synsets(word)
+		res = []
+		for synset in synsets:
+			# get a list of all scores that match in swn
+			if self.swn.has_key((synsets[0].pos, synsets[0].offset)):
+				res.append(self.swn[(synset.pos, synset.offset)][0:1])
+		return res
 
-		# use the synset to fetch the associated score for sentiwordnet
-		return randint(-5,5)
