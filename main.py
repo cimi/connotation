@@ -1,18 +1,24 @@
 import sys
-from corpus.wordscore import WordScore
+# from corpus.wordscore import WordScore
 from nltk.corpus import wordnet
+from logic.algorithm import Algorithm
 class main: 
     def __init__(self):
 	self.member = "token"        
 
     def main(self):
 	sources = ["The quick brown fox jumps over the lazy dog", "This is ninja stuff right there",
-               "This is micky changing connotation project from eclipse:)"]
+               "This is micky changing connotation project from eclipse:)",
+               "The girl has an apple"]
 	# get the corpus interface
 	sys.path.append('corpus')
-	c = WordScore('corpus/data/swn.txt')
+	# c = WordScore('corpus/data/swn.txt')
 	# get the score of the first word given as a command line argument
-	print c.getScore(sys.argv[1])
+	# print c.getScore(sys.argv[1])
+	
+	a = Algorithm();
+	for text in sources:
+		print "<<" + text + ">> has score " + str(a.getScore(text)) + "\n\n\n"
 
 
 if __name__ == '__main__':

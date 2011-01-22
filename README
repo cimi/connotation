@@ -3,8 +3,12 @@ Dependencies:
 	- SentiWordNet (corpus/data/swn.txt)
 
 Current usage:
-	python main.py <word>
+	python main.py
 
-Outputs a list with all the scores associated with the certain word given as input.
+Outputs the score for each source text in the form of [positive_score negative_score]
+
+It also outputs a list with all the scores associated with each word in each text - just to check final results.
+
+
 
 

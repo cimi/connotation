@@ -30,5 +30,6 @@ class WordScore():
 			# print self.swn['comment.v.2']
 			if self.swn.has_key(synset.name):
 				res.append(self.swn[(synset.name)])
+		print res
 		return res
 
