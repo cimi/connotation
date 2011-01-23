@@ -2,7 +2,7 @@ import sys
 import ConfigParser
 # from corpus.wordscore import WordScore
 from nltk.corpus import wordnet
-# from logic.algorithm import Algorithm
+from logic.algorithm import Algorithm
 class main: 
     def __init__(self):
 	self.member = "token"        
@@ -24,7 +24,7 @@ class main:
 	# c = WordScore('corpus/data/swn.txt')
 	# get the score of the first word given as a command line argument
 	# print c.getScore(sys.argv[1])
-	quit()	
+	# quit()	
 	a = Algorithm();
 	for text in sources:
 		print "<<" + text + ">> has score " + str(a.getScore(text)) + "\n\n\n"
