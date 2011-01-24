@@ -1,14 +1,15 @@
-from corpus.wordscore import WordScore
-class Algorithm():
+class DummyAlgorithm():
+	def __init__(self, corpus):
+		self.corpus = corpus
+
 	def getScore(self, text):
 		"""Returns an integer representing the score associated to the text"""
 		score = [0,0]
-		c = WordScore('corpus/data/swn.txt')
 		
 		words = text.split(' ')
 		w=0
 		for word in words:
-			res = c.getScore(word)
+			res = self.corpus.getScore(word)
 			i=0
 			tmpScore = [0,0]
 			for resi in res:

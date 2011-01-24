@@ -1,6 +1,6 @@
 from random import randint
 from nltk.corpus import wordnet
-class WordScore():
+class SentiWordNet():
 	
 	def __init__(self, fileName):
 		"""Reads the contents of SentiWordNet into memory"""
