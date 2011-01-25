@@ -7,22 +7,26 @@ class DummyAlgorithm():
 		score = [0,0]
 		
 		words = text.split(' ')
-		w=0
+		if len(words) == 0:
+			return score
+
 		for word in words:
 			res = self.corpus.getScore(word)
-			i=0
 			tmpScore = [0,0]
 			for resi in res:
 				tmpScore[0] += float(resi[0])
 				tmpScore[1] += float(resi[1])
-				i += 1
-			if i>0:
-				tmpScore[0] /= i
-				tmpScore[1] /= i
+
+			if len(res) > 0:
+				# calculate average scores for a word
+				# from all the synsets, if found 
+				tmpScore[0] /= len(res)
+				tmpScore[1] /= len(res)
 				score[0] += tmpScore[0]
 				score[1] += tmpScore[1]
-				w += 1	
-		score[0] /= w
-		score[1] /= w
+
+		# calculate average score for the entire text	
+		score[0] /= len(words)
+		score[1] /= len(words)
 				 
 		return score

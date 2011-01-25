@@ -1,7 +1,6 @@
 from random import randint
 from nltk.corpus import wordnet
 class SentiWordNet():
-	
 	def __init__(self, fileName):
 		"""Reads the contents of SentiWordNet into memory"""
 		f = open(fileName, "r")
@@ -21,15 +20,9 @@ class SentiWordNet():
 		"""Returns an integer representing the score associated to a word by SentiWordNet""" 
 		# first, get the synset of the word from wordnet
 		synsets = wordnet.synsets(word)
-		print "The word " + word + " is associated with the following synsets:"			
 		res = []
 		for synset in synsets:
-			# print out synsets for debugging
-			# print synset.name + " with offset " + str(synset.offset) + " and pos " + synset.pos 
 			# get a list of all scores that match in swn
-			# print self.swn['comment.v.2']
 			if self.swn.has_key(synset.name):
 				res.append(self.swn[(synset.name)])
-		print res
 		return res
-

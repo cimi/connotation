@@ -1,14 +1,20 @@
 Dependencies:
 	- NLTK - python library, to be downloaded
 	- SentiWordNet (corpus/data/swn.txt)
+	- mysql-python - python library which enables python to interface to mysql
 
 Current usage:
 	python main.py
 
-Outputs the score for each source text in the form of [positive_score negative_score]
+Configuration is done from the settings.cfg file. 
 
-It also outputs a list with all the scores associated with each word in each text - just to check final results.
+The current configuration uses a dummy algorithm to calculate scores of reviews drawn from IMDB. The rating associated with the review is included in the output to be able to infer statistics from the output.
 
+The interface to SentiWordNet first contacts WordNet to extract all the synsets associated with a word. Then, SentiWordNet is consulted to draw the scores for every synset.
 
+The algorithm first makes an average of all scores associated with the synsets for a given word. Then, it makes an average out of all the scores for a given text.
 
+The data for the IMDB reviews was scraped with a PHP script (see datasource/imdb-reviews). The script inserts the data into a mysql-database, from which the python code draws them from.
+
+The imdb.out file contains the output of the run over all reviews.
 
