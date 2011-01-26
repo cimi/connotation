@@ -16,5 +16,5 @@ The algorithm first makes an average of all scores associated with the synsets f
 
 The data for the IMDB reviews was scraped with a PHP script (see datasource/imdb-reviews). The script inserts the data into a mysql-database, from which the python code draws them from.
 
-The imdb.out file contains the output of the run over all reviews.
+The analysis/imdb.out file contains the output of the run over all reviews. When running analysis/imdb.py over the output file, you will see the percentage of correct evaluations and the average score associated with each rating.
 
