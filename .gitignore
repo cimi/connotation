@@ -1,2 +1,3 @@
 *.pyc
+datasource/imdb-reviews/reviews.sql
 corpus/data/swn.txt

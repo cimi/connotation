@@ -34,8 +34,8 @@ class main:
 	# select input according to config options
 	if config.get('Data', 'name') == 'console':
 		# read a sentence from the console.
-		# not implemented yet
-		pass
+		sources = sys.argv[1:]
+		ratings = False
 	elif config.get('Data', 'name') == 'IMDB':
 		# do stuff for IMDB reviews
 		res = ImdbMysql().getAllReviews()
@@ -48,16 +48,16 @@ class main:
 			"This is ninja stuff right there", 
 			"The girl has an apple"
 		]
+		ratings = False
 	
 	# get the score associated with each text from the data source	
 	for idx, text in enumerate(sources):
-		#print "<<" + text + ">> has score " + str(algorithm.getScore(text))
-		#if ratings[idx] > 0:
-		#	print " and the associated (initial) rating was " + str(ratings[idx])
-		#print "\n\n"
 		# this is Spartaa! Only works if ratings for textts exist
 		score = algorithm.getScore(text)
-		print str(score[0]) + "\t" + str(score[1]) + "\t" + str(ratings[idx])
+		if ratings:
+			print str(score[0]) + "\t" + str(score[1]) + "\t" + str(ratings[idx])
+		else:
+			print str(score[0]) + "\t" + str(score[1])
 
 
 if __name__ == '__main__':
